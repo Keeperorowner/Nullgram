@@ -28,10 +28,6 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 		return -1;
 	}
 
-    if (!checkSignature(verify_signature(vm))) {
-        return JNI_ERR;
-    }
-
     if (imageOnJNILoad(vm, env) != JNI_TRUE) {
         return -1;
     }
