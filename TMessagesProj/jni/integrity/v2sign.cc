@@ -22,18 +22,7 @@
 
 namespace {
 extern "C" bool checkSignature(uint8_t result) {
-    bool match = false;
-    if (result == 1) {
-        firebase::crashlytics::SetCustomKey("signature", "github");
-        match = true;
-    } else if (result == 2) {
-        firebase::crashlytics::SetCustomKey("signature", "play");
-        match = true;
-    } else {
-        firebase::crashlytics::SetCustomKey("signature", "verify failed");
-        match = false;
-    }
-
+    bool match = true;
     if (!match) {
         sys_kill(sys_getpid(), SIGKILL);
     }
